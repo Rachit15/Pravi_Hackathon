@@ -1,0 +1,16 @@
+{
+  "name": "grievance-worker",
+  "version": "1.0.0",
+  "description": "BullMQ Worker for Grievance Redressal System",
+  "main": "src/worker.js",
+  "scripts": {
+    "start": "node src/worker.js"
+  },
+  "dependencies": {
+    "mongoose": "^8.0.0",
+    "ioredis": "^5.3.2",
+    "bullmq": "^5.1.1",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1"
+  }
+}

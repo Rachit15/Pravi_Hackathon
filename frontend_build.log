@@ -1,0 +1,140 @@
+time="2026-03-17T11:50:58+05:30" level=warning msg="D:\\Pravi_Hackathon\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+#1 [internal] load local bake definitions
+#1 reading from stdin 960B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 712B 0.0s done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/node:20-alpine
+#3 DONE 6.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 32B 0.0s
+#4 transferring context: 157B 0.2s done
+#4 DONE 1.2s
+
+#5 [base 1/2] FROM docker.io/library/node:20-alpine@sha256:b88333c42c23fbd91596ebd7fd10de239cedab9617de04142dde7315e3bc0afa
+#5 DONE 0.0s
+
+#6 [base 2/2] WORKDIR /app
+#6 CACHED
+
+#7 [runner 1/5] RUN addgroup --system --gid 1001 nodejs
+#7 DONE 10.8s
+
+#8 [runner 2/5] RUN adduser --system --uid 1001 nextjs
+#8 DONE 8.9s
+
+#9 [internal] load build context
+#9 transferring context: 2.84kB 0.2s done
+#9 DONE 0.5s
+
+#10 [deps 1/2] COPY package*.json ./
+#10 DONE 3.1s
+
+#11 [deps 1/2] COPY package*.json ./
+#11 CACHED
+
+#12 [deps 2/2] RUN npm install --legacy-peer-deps
+#12 366.2 npm warn deprecated next@14.0.4: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
+#12 371.0 
+#12 371.0 added 220 packages, and audited 221 packages in 6m
+#12 371.0 
+#12 371.0 32 packages are looking for funding
+#12 371.0   run `npm fund` for details
+#12 373.7 
+#12 373.7 1 critical severity vulnerability
+#12 373.7 
+#12 373.7 To address all issues, run:
+#12 373.7   npm audit fix --force
+#12 373.7 
+#12 373.7 Run `npm audit` for details.
+#12 374.2 npm notice
+#12 374.2 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+#12 374.2 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+#12 374.2 npm notice To update run: npm install -g npm@11.11.1
+#12 374.2 npm notice
+#12 DONE 389.0s
+
+#13 [builder 1/3] COPY --from=deps /app/node_modules ./node_modules
+#13 DONE 93.3s
+
+#14 [builder 2/3] COPY . .
+#14 DONE 2.3s
+
+#15 [builder 3/3] RUN npm run build
+#15 16.13 
+#15 16.13 > grievance-frontend@1.0.0 build
+#15 16.13 > next build
+#15 16.13 
+#15 22.99    ▲ Next.js 14.0.4
+#15 23.00 
+#15 23.00    Creating an optimized production build ...
+#15 76.88 Failed to compile.
+#15 76.88 
+#15 76.88 ./src/app/dashboard/all-grievances/page.jsx
+#15 76.88 Module not found: Can't resolve '@/lib/api'
+#15 76.88 
+#15 76.88 https://nextjs.org/docs/messages/module-not-found
+#15 76.88 
+#15 76.88 ./src/app/dashboard/analytics/page.jsx
+#15 76.88 Module not found: Can't resolve '@/lib/api'
+#15 76.88 
+#15 76.88 https://nextjs.org/docs/messages/module-not-found
+#15 76.88 
+#15 76.88 ./src/app/dashboard/assigned/page.jsx
+#15 76.88 Module not found: Can't resolve '@/contexts/AuthContext'
+#15 76.88 
+#15 76.88 https://nextjs.org/docs/messages/module-not-found
+#15 76.88 
+#15 76.88 ./src/app/dashboard/assigned/page.jsx
+#15 76.88 Module not found: Can't resolve '@/lib/api'
+#15 76.88 
+#15 76.88 https://nextjs.org/docs/messages/module-not-found
+#15 76.88 
+#15 76.88 ./src/app/dashboard/departments/page.jsx
+#15 76.88 Module not found: Can't resolve '@/lib/api'
+#15 76.88 
+#15 76.88 https://nextjs.org/docs/messages/module-not-found
+#15 76.88 
+#15 77.46 
+#15 77.46 > Build failed because of webpack errors
+#15 80.73 npm notice
+#15 80.73 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+#15 80.73 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+#15 80.73 npm notice To update run: npm install -g npm@11.11.1
+#15 80.73 npm notice
+#15 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+------
+ > [builder 3/3] RUN npm run build:
+76.88 
+76.88 https://nextjs.org/docs/messages/module-not-found
+76.88 
+77.46 
+77.46 > Build failed because of webpack errors
+80.73 npm notice
+80.73 npm notice New major version of npm available! 10.8.2 -> 11.11.1
+80.73 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+80.73 npm notice To update run: npm install -g npm@11.11.1
+80.73 npm notice
+------
+Dockerfile:12
+
+--------------------
+
+  10 |     COPY . .
+
+  11 |     ENV NEXT_TELEMETRY_DISABLED 1
+
+  12 | >>> RUN npm run build
+
+  13 |     
+
+  14 |     FROM base AS runner
+
+--------------------
+
+failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+
